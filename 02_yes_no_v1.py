@@ -1,7 +1,12 @@
-"""LU Yes / NO
-Simplifies the input by converting it to lower case. Also accepts y or n as
-abbreviations. Prints result of user choice as well as input - for testing
+"""Yes/No checking function
+based on 01_yes_no_v3
 """
+
+# Functions go here...
+
+
+# Main routine go here...
+
 
 show_instructions = ""
 while show_instructions != "x":
