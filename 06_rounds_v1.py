@@ -7,7 +7,7 @@ Test amount set to $5
 import random
 
 # Main routine
-TEST_AMOUNT= 5
+TEST_AMOUNT = 5
 balance = TEST_AMOUNT
 
 rounds_played = 0
@@ -15,8 +15,8 @@ play_again = ""
 
 # Testing loop to generate 5 tokens
 while play_again != "x":
-    rounds_played += 1 #keep track of rounds
-    number = random.randint(6, 36) # can only be a donkey
+    rounds_played += 1  #keep track of rounds
+    number = random.randint(6, 36)  # can only be a donkey
 
     # adjust balance
     # if the random number is between 1 and 5
@@ -45,4 +45,16 @@ while play_again != "x":
             balance -= .5
 
     # output
-    print(f"Token: {token}, Balance: {balance:.2f}")
+    print(f"Round {rounds_played}, Token: {token}, Balance: ${balance:.2f}")
+    if balance < 1:
+        print("\nSorry but you have run out of money!")
+        play_again = "x"
+    else:
+        play_again = input("\nDo you want to play another round?\n<enter> to play "
+                           "again or 'X' to exit ").lower()
+    print()
+
+print("Thanks for playing!")
+print(f"You started with ${TEST_AMOUNT:.2f}")
+print(f"And leave with ${balance:.2f}")
+print("Goodbye!")
