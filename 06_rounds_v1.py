@@ -1,17 +1,22 @@
-"""Component 3 (random tokens) v4
-Calculate percentages to ensure the odds favor the house
-5% unicorn, 30% donkey, and the remaining 65% horses/zebras
+"""Component 4 - game mechanics and looping v1
+Based on 05_token_generator_v4but hard-wired to only allocate donkeys
+Gives user feedback about number of rounds nd maintains balance.
+Test amount set to $5
 """
 
 import random
 
+# Main routine
+TEST_AMOUNT= 5
+balance = TEST_AMOUNT
 
-STARTING_BALANCE = 100
-balance = STARTING_BALANCE
+rounds_played = 0
+play_again = ""
 
-# Testing loop to generate 100 tokens
-for item in range(10):
-    number = random.randint(1,100)
+# Testing loop to generate 5 tokens
+while play_again != "x":
+    rounds_played += 1 #keep track of rounds
+    number = random.randint(6, 36) # can only be a donkey
 
     # adjust balance
     # if the random number is between 1 and 5
@@ -41,7 +46,3 @@ for item in range(10):
 
     # output
     print(f"Token: {token}, Balance: {balance:.2f}")
-
-print()
-print(f"Starting balance = ${STARTING_BALANCE:.2f}")
-print(f"Final balance = ${balance:.2f}")

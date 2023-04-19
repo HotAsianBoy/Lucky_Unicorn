@@ -1,5 +1,5 @@
-"""Took functions from component 03_v1 as the basis for this function which
-incorporates both yes/no and show instructions"""
+"""LU Base Component
+Components dded after thy have created and tested"""
 
 
 # yes/no checking function
