@@ -1,7 +1,6 @@
-"""LU Base Component - based on 00_LU_Base_v1
-Components added after thy have created and tested
-Added 06_rounds_v3
-Changed the format on line 118 to currency
+"""LU Base Component - based on 00_LU_Base_v2
+Adding instructions to instructions function and further text decoration
+including round number and token
 """
 import random
 
@@ -30,9 +29,24 @@ def yes_no(question_text):
 
 # function to display instructions
 def instructions():
-    print("**** How to Play ****")
     print()
-    print("The rules of the game will go here")
+    print("*", "How to Play,")
+    print()
+    print("Choose a starting amount to play with - must be between $1 - $10")
+    print()
+    print("Then press <enter> to play. You will get a random token which might"
+          "be a horse, a zebra, a donkey, or a unicorn.")
+    print()
+    print("It costs $1 to play each round but, depending on your prize, you"
+          "could win some of your money back. These are the payout amounts:\n"
+          "\tUnicorn:$5 (balance increases by $4\n"
+          "\tHorse:$0.50 (balance decreases by $0.50\n"
+          "\tZebra:$0.50 (balance decreases by $0.50\n"
+          "\tDonkey:$0.00 (balance decreases by $1\n")
+    print("\nSee if you can avoid donkeys, get the unicorns, and finish with"
+          "more money than you started with.\n")
+
+    print("*" * 50)
     print()
 
 
@@ -82,19 +96,23 @@ def generate_token(balance):
         elif 6 <= number <= 36:
             token = "donkey"
             balance -= 1
+            print(formatter("D", "Bad luck, you got a donkey!"))
+            print()
 
         # in all other cases the token must be a horse or a zebra
         # (subtract $0.50 from the balance in either case)
         else:
             # if the number is even, set the token to zebra
             if number % 2 == 0:
-                token = "zebra"
-                balance -= .50
+                balance -= .5
+                print(formatter("Z", "You got a Zebra"))
+                print()
 
             # otherwise, set the token to horse
             else:
-                token = "horse"
                 balance -= .5
+                print(formatter("H", "You got a Horse"))
+                print()
 
         # output
         print(f"Round {rounds_played}, Token: {token}, Balance: ${balance:.2f}")
