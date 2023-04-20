@@ -1,5 +1,5 @@
 """LU Base Component
-Components dded after thy have created and tested"""
+Components added after thy have created and tested"""
 
 
 # yes/no checking function
